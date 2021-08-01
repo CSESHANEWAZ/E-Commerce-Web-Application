@@ -73,6 +73,7 @@
 								@if(Route::has('login'))
 									@auth
 										@if(Auth::user() -> utype == 'ADM')
+
 											<!-- Admin -->
 											<li class="menu-item menu-item-has-children parent" >
 												<a title="My Account" href="#">My Account ({{ Auth::user() -> name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -85,6 +86,9 @@
 													</li>
 													<li class="menu-item">
 														<a title="Products" href="{{route('admin.products')}}">All Products</a>
+													</li>
+													<li class="menu-item">
+														<a title="Manage Home Slider" href="{{route('admin.homeslider')}}">Manage Home Slider</a>
 													</li>
 													<li class="menu-item">
 															<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
