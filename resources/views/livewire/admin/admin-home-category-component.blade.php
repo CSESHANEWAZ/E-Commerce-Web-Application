@@ -8,7 +8,9 @@
                     </div>
                     <div class="panel-body">
                         @if (Session::has('message'))
-                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                            <div class="alert alert-success" role="alert">
+                                {{Session::get('message')}}
+                            </div>
                         @endif
                         <div class="form-horizontal" wire:submit.prevent="updateHomeCategory">
                             <div class="form-group">
@@ -52,8 +54,7 @@
             $('.sel_categories').on('change', function(e){
                 var data = $('.sel_categories').select2("val");
                 @this.set('selected_categories', data);
-            });
-            
+            });   
         });
     </script>
 @endpush

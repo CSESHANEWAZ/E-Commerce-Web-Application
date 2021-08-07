@@ -25,11 +25,17 @@ class AdminHomeCategoryComponent extends Component
         $category->no_of_products = $this->numberofproducts;
         $category->save();
 
-        session()->flash('message', 'HomeCategory has been updated successfully');
+        session()->flash('message', 'HomeCategory has been updated successfully.');
     }
+
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.admin.admin-home-category-component', ['categories'=>$categories])->layout('layouts.base');
+
+        return view('livewire.admin.admin-home-category-component', 
+        [
+            'categories' => $categories,
+
+        ])->layout('layouts.base');
     }
 }
