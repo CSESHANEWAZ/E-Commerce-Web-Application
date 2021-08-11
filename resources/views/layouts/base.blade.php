@@ -500,6 +500,9 @@
 	<!-- noUiSlider -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js" integrity="sha512-jWNpWAWx86B/GZV4Qsce63q5jxx/rpWnw812vh0RE+SBIo/mmepwOSQkY2eVQnMuE28pzUEO7ux0a5sJX91g8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+	<!-- tiny -->
+	<script src="https://cdn.tiny.cloud/1/q7tpi1ku5huv9m5pj8juqgev665idud4q6o5j3h5ut4r0c2r/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
      @livewireScripts
 
 	@stack('scripts')

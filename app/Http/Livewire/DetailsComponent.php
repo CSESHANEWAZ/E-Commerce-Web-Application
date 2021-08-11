@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Product;
+use App\Models\Sale;
+
 Use Cart;
 
 class DetailsComponent extends Component
