@@ -20,6 +20,15 @@ class WishlistComponent extends Component
         }
     }
 
+    public function moveProductFromWishlistToCart($rowId)
+    {
+        $item = Cart::instance('wishlist')->get($rowId);
+        Cart::instance('wishlist')->remove($rowId);
+        Cart::instance('wishlist')->add($item->id, $item->name, $item->price)->associate('App\Models\Product');
+        $this->emitTo('wishlist-count-component', 'refreshComponent');
+        $this->emitTo('cart-count-component', 'refreshComponent');
+    }
+
     public function render()
     {
         return view('livewire.wishlist-component')->layout('layouts.base');
