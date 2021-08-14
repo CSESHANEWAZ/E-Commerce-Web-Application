@@ -46,7 +46,7 @@
 						<div class="topbar-menu left-menu">
 							<ul>
 								<li class="menu-item" >
-									<a title="Hotline: (+123) 456 789" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+									<a title="Hotline: +8801790 - 01792" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: +8801790 - 01792</a>
 								</li>
 							</ul>
 						</div>
@@ -292,7 +292,7 @@
 								<div class="item-content">
 									<div class="wrap-hotline-footer">
 										<span class="desc">Call Us toll Free</span>
-										<b class="phone-number">(+123) 456 789 - (+123) 666 888</b>
+										<b class="phone-number">+8801790 - 01792</b>
 									</div>
 								</div>
 							</div>

@@ -98,6 +98,21 @@
                 </div>
             </div>
 
+            <div class="team-member equal-elem">
+                <center>
+                <div class="media">
+                    <a href="#" title="LEONA">
+                        <figure><img src="{{ asset('assets/images/pp.jpeg') }}" alt="LEONA"></figure>
+                    </a>
+                </div>
+                <div class="info">
+                    <b class="name">Muhammad Shanewaz</b>
+                    <span class="title">ADMIN (Engineer)</span>
+                    <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                </div>
+                </center>
+            </div>
+
             <div class="our-team-info">
                 <h4 class="title-box">Our teams</h4>
                 <div class="our-staff">
