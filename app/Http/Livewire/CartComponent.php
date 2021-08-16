@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Coupon;
 use Cart;
+use Carbon\Carbon;
 
 class CartComponent extends Component
 {
@@ -74,7 +75,7 @@ class CartComponent extends Component
 
     public function applyCouponCode()
     {
-        $coupon = Coupon::where('code', $this->couponCode)->where('cart_value', '<=', Cart::instance('cart')->subtotal())->first();
+        $coupon = Coupon::where('code', $this->couponCode)->where('expiry_date', '>=', Carbon::today())->where('cart_value', '<=', Cart::instance('cart')->subtotal())->first();
         if (!$coupon) 
         {
             session()->flash('coupon_message', 'Coupon code is invalid!');
