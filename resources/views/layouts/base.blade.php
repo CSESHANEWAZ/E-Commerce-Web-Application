@@ -111,6 +111,9 @@
 														<a title="All Coupon" href="{{route('admin.coupons')}}">All Coupons</a>
 													</li>
 													<li class="menu-item">
+														<a title="All Orders" href="{{route('admin.orders')}}">All Orders</a>
+													</li>
+													<li class="menu-item">
 														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 													</li>
 													<form id="logout-form" action="{{ route('logout') }}" method="post">
@@ -125,6 +128,9 @@
 												<ul class="submenu curency" >
 													<li class="menu-item" >
 														<a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
+													</li>
+													<li class="menu-item" >
+														<a title="My Orders" href="{{ route('user.orders') }}">My Orders</a>
 													</li>
 													<li class="menu-item">
 														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
