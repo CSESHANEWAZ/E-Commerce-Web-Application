@@ -30,11 +30,13 @@ use App\Http\Livewire\Admin\AdminAddCouponComponent;
 use App\Http\Livewire\Admin\AdminEditCouponComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
+use App\Http\Livewire\Admin\AdminContactComponent;
 
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\User\UserOrdersComponent;
 use App\Http\Livewire\User\UserOrderDetailsComponent;
 use App\Http\Livewire\User\UserReviewComponent;
+use App\Http\Livewire\User\UserChangePasswordComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +58,7 @@ Route::get('/about', AboutComponent::class);
 Route::get('/shop', ShopComponent::class);
 Route::get('/cart', CartComponent::class)->name('product.cart');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
-Route::get('/contact', ContactComponent::class);
+Route::get('/contact', ContactComponent::class)->name('contact');
 Route::get('/product/{slug}', DetailsComponent::class)->name('product.details');
 Route::get('/product-category/{category_slug}', CategoryComponent::class)->name('product.category');
 Route::get('/search', SearchComponent::class)->name('product.search');
@@ -75,6 +77,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
      Route::get('/user/orders', UserOrdersComponent::class)->name('user.orders');
      Route::get('/user/orders/{order_id}', UserOrderDetailsComponent::class)->name('user.orderdetails');
      Route::get('/user/review/{order_item_id}', UserReviewComponent::class)->name('user.review');
+     Route::get('/user/change-password', UserChangePasswordComponent::class)->name('user.changepassword');
 
 });
 
@@ -102,5 +105,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
 
      Route::get('/admin/orders', AdminOrderComponent::class)->name('admin.orders');
      Route::get('/admin/orders/{order_id}', AdminOrderDetailsComponent::class)->name('admin.orderdetails');
+
+     Route::get('/admin/contact-us', AdminContactComponent::class)->name('admin.contact');
 
 });

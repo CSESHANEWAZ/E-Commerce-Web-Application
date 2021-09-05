@@ -1,10 +1,11 @@
-<main id="main" class="main-site left-sidebar">
+<div>
+    <main id="main" class="main-site left-sidebar">
 
     <div class="container">
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
+                <li class="item-link"><a href="/" class="link">home</a></li>
                 <li class="item-link"><span>Contact us</span></li>
             </ul>
         </div>
@@ -14,19 +15,34 @@
                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="contact-box contact-form">
                             <h2 class="box-title">Leave a Message</h2>
-                            <form action="#" method="get" name="frm-contact">
+                            @if (Session::has('message'))
+                                <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                            @endif
+                            <form  name="frm-contact" wire:submit.prevent="sendMessage">
 
                                 <label for="name">Name<span>*</span></label>
-                                <input type="text" value="" id="name" name="name" >
+                                <input type="text" value="" id="name" name="name" wire:model="name">
+                                @error('name')
+                                    <p class="text-danger">{{$message}}</p>
+                                @enderror
 
                                 <label for="email">Email<span>*</span></label>
-                                <input type="text" value="" id="email" name="email" >
+                                <input type="text" value="" id="email" name="email" wire:model="email">
+                                @error('name')
+                                    <p class="text-danger">{{$message}}</p>
+                                @enderror
 
                                 <label for="phone">Number Phone</label>
-                                <input type="text" value="" id="phone" name="phone" >
+                                <input type="text" value="" id="phone" name="phone" wire:model="phone">
+                                @error('name')
+                                    <p class="text-danger">{{$message}}</p>
+                                @enderror
 
                                 <label for="comment">Comment</label>
-                                <textarea name="comment" id="comment"></textarea>
+                                <textarea name="comment" id="comment" wire:model="comment"></textarea>
+                                @error('name')
+                                    <p class="text-danger">{{$message}}</p>
+                                @enderror
 
                                 <input type="submit" name="ok" value="Submit" >
                                 
@@ -92,4 +108,5 @@
 
     </div><!--end container-->
 
-</main>
+    </main>
+</div>
