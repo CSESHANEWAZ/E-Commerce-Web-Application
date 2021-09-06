@@ -1,0 +1,105 @@
+<div class="product-rating">
+     <style>
+          .color-gray {
+               color: #e6e6e6 !important;
+          }
+     </style>
+     @php
+          $avgrating = 0;
+     @endphp
+     @foreach ($product->orderItems->where('rstatus',0) as $orderItem)
+          @php
+               $avgrating = $avgrating + $orderItem->review->rating;
+          @endphp
+     @endforeach
+     @for ($i=1; $i<=5; $i++)
+          @if ($i<=$avgrating)
+               <i class="fa fa-star" aria-hidden="true"></i>
+          @else
+               <i class="fa fa-star color-gray" aria-hidden="true"></i>
+          @endif
+          
+     @endfor
+     <a href="#" class="count-review">({{$product->orderItem->where('rstatus', 1)->count()}} review)</a>
+</div>
+
+
+
+
+
+
+
+
+<!--On Sale-->
+@if ($sproducts->count() > 0 && $sale->status == 0 && $sale->sale_date > Carbon\Carbon::now())
+     <div class="wrap-show-advance-info-box style-1 has-countdown">
+          <h3 class="title-box">On Sale</h3>
+          <div class="wrap-countdown mercado-countdown" data-expire="{{ Carbon\Carbon::parse($sale->sale_date)->format('Y/m/d h:m:s')}}"></div>
+          <div class="wrap-products slide-carousel owl-carousel style-nav-1 equal-container " data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"4"},"1200":{"items":"5"}}'>
+
+               @foreach ($sproducts as $sproduct)
+                    <div class="product product-style-2 equal-elem ">
+                         <div class="product-thumnail">
+                              <a href="{{route('product.details', ['slug'=>$sproduct->slug])}}" title="{{$sproduct->name}}">
+                                   <figure><img src="{{ asset('assets/images/products') }}/{{$sproduct->image}}" width="800" height="800" alt="{{$sproduct->name}}"></figure>
+                              </a>
+                              <div class="group-flash">
+                                   <span class="flash-item sale-label">sale</span>
+                              </div>
+                         </div>
+                         <div class="product-info">
+                              <a href="{{route('product.details', ['slug'=>$sproduct->slug])}}" class="product-name"><span>{{$sproduct->name}}</span></a>
+                              <div class="wrap-price">
+                                   <ins><p class="product-price">${{$sproduct->sale_price}}</p></ins> 
+                                   <del><p class="product-price">${{$sproduct->regular_price}}</p></del>
+                              </div>
+                         </div>
+                    </div>
+               @endforeach
+
+          </div>
+     </div>
+@endif
+
+
+
+
+
+
+
+
+
+<!-- <x-guest-layout>
+    <x-jet-authentication-card>
+        <x-slot name="logo">
+            <x-jet-authentication-card-logo />
+        </x-slot>
+
+        <div class="mb-4 text-sm text-gray-600">
+            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        </div>
+
+        @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        <x-jet-validation-errors class="mb-4" />
+
+        <form method="POST" action="{{ route('password.email') }}">
+            @csrf
+
+            <div class="block">
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <x-jet-button>
+                    {{ __('Email Password Reset Link') }}
+                </x-jet-button>
+            </div>
+        </form>
+    </x-jet-authentication-card>
+</x-guest-layout> -->
